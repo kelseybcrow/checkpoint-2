@@ -1,0 +1,30 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+
+}
+
+main {
+    flex-grow: 1;
+}
+
+footer {
+
+}
+
+.row {
+    min-width: 100;
+}
+
+.sushi-plate {
+    max-width: 100;;
+}
+
+.card {
+    margin: 0;
+    padding: 0;
+}
