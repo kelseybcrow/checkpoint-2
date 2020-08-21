@@ -13,7 +13,7 @@ main {
 }
 
 footer {
-
+    min-height: 40px;
 }
 
 .row {
@@ -21,10 +21,11 @@ footer {
 }
 
 .sushi-plate {
-    max-width: 100;;
+    max-width: 100;
+    border: 5px solid;
 }
 
-.card {
+/* .card {
     margin: 0;
     padding: 0;
-}
+} */
