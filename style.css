@@ -25,6 +25,10 @@ footer {
     border: 5px solid;
 }
 
+.card {
+    border: 2px solid;
+}
+
 /* .card {
     margin: 0;
     padding: 0;
