@@ -34,16 +34,17 @@
                         <h3>Sushi inventory</h3>
                     </div>
                     <div class="card-body">
-                        <h3 class="card-title">Sushi: 0</h3>
-                        <h5 class="card-text">Knife: 0</h5>
-                        <h5 class="card-text">Bamboo mat: 0</h5>
-                        <h5 class="card-text">Chef: 0</h5>
-                        <h5 class="card-text">Chef's assistant: 0</h5>
+                        <h3 class="card-title" id="sushi-count">Sushi: 0</h3>
+                        <h5 class="card-text" id="knife-count">Knife: 0</h5>
+                        <h5 class="card-text" id="bamboo-count">Bamboo mat: 0</h5>
+                        <h5 class="card-text" id="chef-count">Chef: 0</h5>
+                        <h5 class="card-text" id="helper-count">Chef's helper: 0</h5>
                     </div>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4 px-md-3">
-                <img src="sushi-plate.jpg" class="img-fluid border-warning sushi-plate" alt="Sushi plate">
+                <img src="sushi-plate.jpg" class="img-fluid border-warning sushi-plate" alt="Sushi plate" // REVIEW
+                    id="sushi-plate" onclick="makeSushi()">
             </div>
             <div class="col-12 col-md-4 px-md-3">
                 <div class="card bg-success border-info">
@@ -53,19 +54,23 @@
                     <div class="card-body">
                         <!-- <h5 class="card-title">Sushi Marketplace</h5> -->
                         <div class="row d-flex flex-row m-1">
-                            <button type="button" class="btn btn-warning px-5">Knife</button>
+                            <button type="button" class="btn btn-warning px-5" id="knife-price"
+                                onclick="buyKnife()">Knife</button>
                             <h5 class="card-text align-self-center ml-2"> = 50</h5>
                         </div>
                         <div class="row d-flex flex-row m-1">
-                            <button type="button" class="btn btn-warning px-5">Bamboo mat</button>
+                            <button type="button" class="btn btn-warning px-5" id="bamboo-price"
+                                onclick="buyBamboo()">Bamboo mat</button>
                             <h5 class="card-text align-self-center ml-2"> = 250</h5>
                         </div>
                         <div class="row d-flex flex-row m-1">
-                            <button type="button" class="btn btn-warning px-5">Chef</button>
+                            <button type="button" class="btn btn-warning px-5" id="chef-price"
+                                onclick="buyChef()">Chef</button>
                             <h5 class="card-text align-self-center ml-2"> = 500</h5>
                         </div>
                         <div class="row d-flex flex-row m-1">
-                            <button type="button" class="btn btn-warning px-5">Chef's helper</button>
+                            <button type="button" class="btn btn-warning px-5" id="helper-price"
+                                onclick="buyHelper()">Chef's helper</button>
                             <h5 class="card-text align-self-center ml-2"> = 10,000</h5>
                         </div>
                     </div>
@@ -76,7 +81,7 @@
 
     <footer class="row bg-warning mt-3">
         <div class="col-12">
-            <h6 class="p-3">Made with love by Kelsey
+            <h6 class="p-3">Made with love by Kelsey Crow
             </h6>
         </div>
     </footer>
