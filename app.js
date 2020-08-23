@@ -1,10 +1,12 @@
 let sushi = 0;
 
-// let sushiCount;
-// let knifeCount;
-// let bambooMatCount;
-// let chefCount;
-// let chefHelperCount;
+let sushiCount = document.getElementById("sushi-count")
+let knifeCount = document.getElementById("knife-count")
+let bambooCount = document.getElementById("bamboo-count")
+let chefCount = document.getElementById("chef-count")
+let helperCount = document.getElementById("helper-count")
+
+
 
 let clickUpgrades = {
     knives: {
@@ -41,7 +43,7 @@ function updateInventory() {
 
 }
 
-function gameUpgrades() {
+function purchasedUpgrades() {
 
 }
 
