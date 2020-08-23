@@ -1,4 +1,5 @@
 let sushi = 0;
+let knife = 0;
 
 let sushiStatus = document.getElementById("sushi-count")
 let knifeStatus = document.getElementById("knife-count")
@@ -23,46 +24,50 @@ function updateInventory() {
     ${sushi}
     `
 
-    // hitStatus.innerHTML = `
-    // ${hits}
-    // `
+    knifeStatus.innerHTML = `
+    ${knife}
+    `
   }
 
-function purchasedUpgrades() {
-
-}
-
-
-
-let clickUpgrades = {
-    knives: {
-        price: 100,
-        quantity: 0,
-        multiplier: 2
-    },
-    bambooMat: {
-        price: 200,
-        quantity: 0,
-        multiplier: 3
-    }
-
-}
-
-let autoUpgrades = {
-    chef: {
-        price: 500,
-        quantity: 0,
-        multiplier: 20
-    },
-    chefHelper: {
-        price: 1000,
-        quantity: 0,
-        multiplier: 40
+function buyKnife() {
+    if (sushi >= 50) {
+        sushi -= 50;
+        knife++;
+        updateInventory();
     }
 }
 
 
-function startInterval() {
 
-}
+// let clickUpgrades = {
+//     knives: {
+//         price: 50,
+//         quantity: 0,
+//         multiplier: 2
+//     },
+//     // bambooMat: {
+//     //     price: 200,
+//     //     quantity: 0,
+//     //     multiplier: 3
+//     // }
+
+// }
+
+// let autoUpgrades = {
+//     chef: {
+//         price: 500,
+//         quantity: 0,
+//         multiplier: 20
+//     },
+//     chefHelper: {
+//         price: 1000,
+//         quantity: 0,
+//         multiplier: 40
+//     }
+// }
+
+
+// function startInterval() {
+
+// }
 
