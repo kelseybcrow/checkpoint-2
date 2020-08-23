@@ -1,10 +1,36 @@
 let sushi = 0;
 
-let sushiCount = document.getElementById("sushi-count")
-let knifeCount = document.getElementById("knife-count")
-let bambooCount = document.getElementById("bamboo-count")
-let chefCount = document.getElementById("chef-count")
-let helperCount = document.getElementById("helper-count")
+let sushiStatus = document.getElementById("sushi-count")
+let knifeStatus = document.getElementById("knife-count")
+let bambooStatus = document.getElementById("bamboo-count")
+let chefStatus = document.getElementById("chef-count")
+let helperStatus = document.getElementById("helper-count")
+
+
+function makeSushi() {
+    sushi++;
+    updateInventory();
+}
+
+function updateInventory() {
+    // if (health <= 0) {
+    //   health = 0
+    //   winStatus.hidden = false
+
+    // }
+
+    sushiStatus.innerHTML = `
+    ${sushi}
+    `
+
+    // hitStatus.innerHTML = `
+    // ${hits}
+    // `
+  }
+
+function purchasedUpgrades() {
+
+}
 
 
 
@@ -35,17 +61,6 @@ let autoUpgrades = {
     }
 }
 
-function makeSushi() {
-
-}
-
-function updateInventory() {
-
-}
-
-function purchasedUpgrades() {
-
-}
 
 function startInterval() {
 
