@@ -20,16 +20,20 @@ let clickUpgrades = {
     bambooMat: {
         price: 200,
         quantity: 0,
-        multiplier: 3
+        multiplier: 10
     }
 }
 
 function buttonAvailability() {
-    if (sushi < clickUpgrades.knife.price) {
-        knifeButton.disabled = true;
-    }
     if (sushi >= clickUpgrades.knife.price) {
         knifeButton.disabled = false;
+    } else if (sushi < clickUpgrades.knife.price) {
+        knifeButton.disabled = true;
+    }
+    if (sushi >= clickUpgrades.bambooMat.price) {
+        bambooButton.disabled = false;
+    } else if (sushi < clickUpgrades.bambooMat.price) {
+        bambooButton.disabled = true;
     }
 }
 
@@ -39,7 +43,13 @@ function makeSushi() {
     } else {
         sushi++;
     }
+    if (clickUpgrades.bambooMat.quantity > 0) {
+        sushi += clickUpgrades.bambooMat.quantity * clickUpgrades.bambooMat.multiplier;
+    } else {
+        sushi++;
+    }
     updateInventory();
+    buttonAvailability();
 }
 
 function updateInventory() {
@@ -49,6 +59,9 @@ function updateInventory() {
     knifeStatus.innerHTML = `
     ${clickUpgrades.knife.quantity}
     `
+    bambooStatus.innerHTML = `
+    ${clickUpgrades.bambooMat.quantity}
+    `
   }
 
 function buyKnife() {
@@ -57,7 +70,12 @@ function buyKnife() {
     updateInventory();
 }
 
-buttonAvailability();
+function buyBamboo() {
+    clickUpgrades.bambooMat.quantity++;
+    sushi -= clickUpgrades.bambooMat.price;
+    updateInventory();
+}
+
 
 // let autoUpgrades = {
 //     chef: {
