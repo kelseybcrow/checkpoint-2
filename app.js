@@ -24,7 +24,7 @@ let clickUpgrades = {
         multiplier: 2
     },
     bambooMat: {
-        price: 200,
+        price: 250,
         quantity: 0,
         multiplier: 10
     }
@@ -34,12 +34,12 @@ let autoUpgrades = {
     chef: {
         price: 500,
         quantity: 0,
-        multiplier: 100
+        multiplier: 50
     },
     chefHelper: {
         price: 1000,
         quantity: 0,
-        multiplier: 200
+        multiplier: 100
     }
 }
 
@@ -120,20 +120,33 @@ function buyChef() {
     if (sushi >= autoUpgrades.chef.price) {
         autoUpgrades.chef.quantity++;
         sushi -= autoUpgrades.chef.price;
-        autoUpgrades.chef.price += 50;
+        autoUpgrades.chef.price += 100;
         chefPrice.innerText = autoUpgrades.chef.price;
         updateInventory();
         buttonAvailability();
     }
 }
 
+function buyHelper() {
+    if (sushi >= autoUpgrades.chefHelper.price) {
+        autoUpgrades.chefHelper.quantity++;
+        sushi -= autoUpgrades.chefHelper.price;
+        autoUpgrades.chefHelper.price += 200;
+        chefPrice.innerText = autoUpgrades.chefHelper.price;
+        updateInventory();
+        buttonAvailability();
+    }
+}
+
 function autoClickSushi() {
-    sushi += autoClick.chef.multiplier * autoClick.chef.quantity;
-    sushi += autoClick.chefHelper.multiplier * autoClick.chefHelper.quantity;
+    sushi += autoUpgrades.chef.multiplier * autoUpgrades.chef.quantity;
+    sushi += autoUpgrades.chefHelper.multiplier * autoUpgrades.chefHelper.quantity;
     updateInventory();
+    buttonAvailability();
 }
 
 setInterval(autoClickSushi, 3000);
+
 updateInventory();
 buttonAvailability();
 
