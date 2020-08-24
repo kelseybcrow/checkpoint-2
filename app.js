@@ -12,6 +12,10 @@ let chefButton = document.getElementById("chef-button")
 let chefHelperButton = document.getElementById("helper-button")
 
 let knifePrice = document.getElementById("knife-price")
+let bambooMatPrice = document.getElementById("bamboo-price")
+let chefPrice = document.getElementById("chef-price")
+let chefHelperPrice = document.getElementById("helper-price")
+
 
 let clickUpgrades = {
     knife: {
@@ -90,26 +94,47 @@ function updateInventory() {
   }
 
 function buyKnife() {
-    clickUpgrades.knife.quantity++;
-    sushi -= clickUpgrades.knife.price;
-    clickUpgrades.knife.price += 10;
-    knifePrice.innerText = clickUpgrades.knife.price;
-    updateInventory();
-    buttonAvailability();
+    if (sushi >= clickUpgrades.knife.price) {
+        clickUpgrades.knife.quantity++;
+        sushi -= clickUpgrades.knife.price;
+        clickUpgrades.knife.price += 10;
+        knifePrice.innerText = clickUpgrades.knife.price;
+        updateInventory();
+        buttonAvailability();
+    }
 }
 
 function buyBamboo() {
-    clickUpgrades.bambooMat.quantity++;
-    sushi -= clickUpgrades.bambooMat.price;
-    updateInventory();
-    buttonAvailability();
+    if (sushi >= clickUpgrades.bambooMat.price) {
+        clickUpgrades.bambooMat.quantity++;
+        sushi -= clickUpgrades.bambooMat.price;
+        clickUpgrades.bambooMat.price += 50;
+        bambooMatPrice.innerText = clickUpgrades.bambooMat.price;
+        updateInventory();
+        buttonAvailability();
+    }
 }
 
+
+function buyChef() {
+    if (sushi >= autoUpgrades.chef.price) {
+        autoUpgrades.chef.quantity++;
+        sushi -= autoUpgrades.chef.price;
+        autoUpgrades.chef.price += 50;
+        chefPrice.innerText = autoUpgrades.chef.price;
+        updateInventory();
+        buttonAvailability();
+    }
+}
+
+function autoClickSushi() {
+    sushi += autoClick.chef.multiplier * autoClick.chef.quantity;
+    sushi += autoClick.chefHelper.multiplier * autoClick.chefHelper.quantity;
+    updateInventory();
+}
+
+setInterval(autoClickSushi, 3000);
 updateInventory();
 buttonAvailability();
 
-
-// function startInterval() {
-
-// }
 
