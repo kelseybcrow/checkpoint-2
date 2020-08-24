@@ -61,7 +61,7 @@ function buttonAvailability() {
 
 }
 
-function makeSushi() {
+function clickSushi() {
     if ((clickUpgrades.knife.quantity > 0) || (clickUpgrades.bambooMat.quantity > 0)) {
         sushi += clickUpgrades.knife.quantity * clickUpgrades.knife.multiplier;
         sushi += clickUpgrades.bambooMat.quantity * clickUpgrades.bambooMat.multiplier;
