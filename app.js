@@ -11,6 +11,8 @@ let bambooButton = document.getElementById("bamboo-button")
 let chefButton = document.getElementById("chef-button")
 let chefHelperButton = document.getElementById("helper-button")
 
+let knifePrice = document.getElementById("knife-price")
+
 let clickUpgrades = {
     knife: {
         price: 50,
@@ -62,12 +64,9 @@ function buttonAvailability() {
 }
 
 function clickSushi() {
-    if ((clickUpgrades.knife.quantity > 0) || (clickUpgrades.bambooMat.quantity > 0)) {
-        sushi += clickUpgrades.knife.quantity * clickUpgrades.knife.multiplier;
-        sushi += clickUpgrades.bambooMat.quantity * clickUpgrades.bambooMat.multiplier;
-    } else {
-        sushi++;
-    }
+    sushi++;
+    sushi += clickUpgrades.knife.quantity * clickUpgrades.knife.multiplier;
+    sushi += clickUpgrades.bambooMat.quantity * clickUpgrades.bambooMat.multiplier;
     updateInventory();
     buttonAvailability();
 }
@@ -93,13 +92,17 @@ function updateInventory() {
 function buyKnife() {
     clickUpgrades.knife.quantity++;
     sushi -= clickUpgrades.knife.price;
+    clickUpgrades.knife.price += 10;
+    knifePrice.innerText = clickUpgrades.knife.price;
     updateInventory();
+    buttonAvailability();
 }
 
 function buyBamboo() {
     clickUpgrades.bambooMat.quantity++;
     sushi -= clickUpgrades.bambooMat.price;
     updateInventory();
+    buttonAvailability();
 }
 
 updateInventory();
