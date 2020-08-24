@@ -28,12 +28,12 @@ let autoUpgrades = {
     chef: {
         price: 500,
         quantity: 0,
-        multiplier: 20
+        multiplier: 100
     },
     chefHelper: {
         price: 1000,
         quantity: 0,
-        multiplier: 40
+        multiplier: 200
     }
 }
 
